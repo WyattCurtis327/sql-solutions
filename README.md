@@ -1,13 +1,5 @@
-# SQL Solutions: 12 SQL Patterns for Data Interviews
-
-PostgreSQL solutions for the 12 patterns in the video
-**["Master SQL using 12 SQL Patterns for Data Interviews"](https://youtu.be/cGtPup-EwrM) by Darshil Parmar**.
-All credit for the problems, patterns and teaching goes to the original creator. This repo is an unofficial companion write-up.
-
-> **Note: reconstructed code.** The video has no repo or posted code, and the code on screen couldn't be read as text. Every query here was **rebuilt from the narration**. Each one was checked against the example data and outputs read out in the video. Literal values that are never spoken out loud are **assumptions**:
-> - `06_funnel.sql`: the stage labels `'signup'`, `'activate'`, `'engage'`, `'convert'`, the `stage` column name and the `'purchase'` event value
-> - `05_sessionization.sql`: the `TO_CHAR` separators (`-` and space). Only "year month day hh24:mi:ss" was spoken.
-> - `09_pivot.sql`: the capitalisation of the region values (`'North'`, `'South'`, ...)
+# SQL Solutions: 12 SQL Patterns
+PostgreSQL
 
 ## Patterns
 
@@ -44,5 +36,3 @@ pip install duckdb
 cd sql && python test_duckdb.py
 ```
 
-## License
-The MIT [LICENSE](LICENSE) covers this repo's own write-up and reconstructed code only. It doesn't cover the original video or its course material, which belong to their creator.
