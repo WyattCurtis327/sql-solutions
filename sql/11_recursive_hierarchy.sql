@@ -1,5 +1,5 @@
-WITH RECURSIVE reports AS (
-    -- anchor: the top manager (no manager of their own) at level 0
+WITH RECURSIVE reports (employee_id, level) AS (
+    -- anchor: top managers (no manager of their own) at level 0
     SELECT employee_id, 0 AS level
     FROM employees
     WHERE manager_id IS NULL

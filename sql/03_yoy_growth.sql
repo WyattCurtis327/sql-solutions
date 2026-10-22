@@ -1,8 +1,8 @@
 WITH yearly_hosts AS (
-    SELECT EXTRACT(YEAR FROM signup_date)::int AS signup_year,
+    SELECT YEAR(signup_date) AS signup_year,
            COUNT(*) AS new_hosts
     FROM hosts
-    GROUP BY EXTRACT(YEAR FROM signup_date)::int
+    GROUP BY YEAR(signup_date)
 ),
 host_growth AS (
     SELECT signup_year,
