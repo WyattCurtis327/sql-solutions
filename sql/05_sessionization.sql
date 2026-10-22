@@ -1,15 +1,21 @@
 WITH with_prev AS (
     SELECT user_id,
            event_timestamp,
-           LAG(event_timestamp) OVER (PARTITION BY user_id ORDER BY event_timestamp) AS prev_ts
+           LAG(event_timestamp) OVER (
+               PARTITION BY user_id
+               ORDER BY event_timestamp
+           ) AS prev_ts
     FROM events
 ),
 flagged AS (
     SELECT user_id,
            event_timestamp,
-           CASE WHEN prev_ts IS NULL
-                  OR event_timestamp - prev_ts > INTERVAL '30 minutes'
-                THEN 1 ELSE 0 END AS new_session
+           CASE
+               WHEN prev_ts IS NULL
+                 OR DATEDIFF('minute', prev_ts, event_timestamp) > 30
+               THEN 1
+               ELSE 0
+           END AS new_session
     FROM with_prev
 ),
 sessions AS (
